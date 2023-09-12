@@ -1,4 +1,4 @@
-[Application Link](https://trading-inventory.adaptable.app)
+[Application Link](https://tokokadal.adaptable.app)
 # Cara Implementasi
 ## Setup Library yang dibutuhkan
 Membuat file `requirements.txt` yang berisi:

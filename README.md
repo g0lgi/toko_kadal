@@ -98,8 +98,7 @@ class Item(models.Model):
 Pastikan repository proyek sudah berada pada github dan bersifat public. Selanjutnya, pada adaptable, pilih opsi `deploy a new app`. Pilih repository sesuai proyek yang akan dideploy. Kemudian `Python App Template`. Selanjutnya adalah opsi database, sementara bisa menggunakan `PostgreSQL`. Sesuaikan versi python dengan versi lokal, `python --version` pada terminal lokal untuk melihat versi. Dan masukan `python manage.py migrate && gunicorn toko_kadal.wsgi` pada `Start Command`. Tentukan nama applikasi dan checklist `HTTP Listener on PORT`. (**Ingat bahwa anda BUKAN toko_kadal, melainkan diganti dengan nama direktori sendiri**)
 
 # Bagan Applikasi Berbasis Django
-![Uploading image.png…]()
-
+![image](https://github.com/g0lgi/toko_kadal/assets/119854906/cffa22ab-e74b-496c-9fe4-34ae4c7df4da)
 
 # Mengapa Virtual Environment
 Kita menggunakan virtual environment saat membuat aplikasi web berbasis Django untuk mengisolasi dan mengelola dependensi proyek secara terpisah, sehingga memungkinkan pengembang untuk menghindari konflik antar-paket yang mungkin terjadi dengan proyek lain atau sistem secara keseluruhan. Dengan cara ini, virtual environment memungkinkan kita untuk menginstal dan mengatur versi yang tepat dari Django dan paket-paket pendukung lainnya, memudahkan pengembangan, pengujian, dan penerapan proyek tanpa merusak instalasi global di sistem yang dapat menyebabkan masalah kompatibilitas. Ini membantu menjaga kestabilan dan konsistensi aplikasi web Django yang sedang dikembangkan.

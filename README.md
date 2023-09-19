@@ -1,4 +1,4 @@
-![Screenshot (61)](https://github.com/g0lgi/toko_kadal/assets/119854906/3030e816-1214-410f-bd46-782b2f021edb)[Application Link](https://tokokadal.adaptable.app)
+[Application Link](https://tokokadal.adaptable.app)
 # Tugas 3
 ## Perbedaan antara form POST dan form GET dalam Django
 Metode GET digunakan untuk meminta data dan sering digunakan ketika ingin mengambil atau mencari data tanpa membuat perubahan apa pun. Misalnya, saat membuat halaman pencarian yang mencari melalui database. Data yang dikirimkan digabungkan menjadi string dan digunakan untuk membuat URL.
@@ -111,16 +111,13 @@ urlpatterns = [
 ```
 
 ## Screenshots
-![Screenshot (63)](https://github.com/g0lgi/toko_kadal/assets/119854906/da747e5d-bea7-4794-9f44-df37f4110ef2)
-![Screenshot (62)](https://github.com/g0lgi/toko_kadal/assets/119854906/bc1c2f6b-3363-4785-9082-61323651216f)
-![Screenshot (61)](https://github.com/g0lgi/toko_kadal/assets/119854906/556aefb1-31fd-4000-b32e-7fb92612af29)
-![Screenshot (60)](https://github.com/g0lgi/toko_kadal/assets/119854906/d5f77cb6-1abd-438b-af13-e0ec2b595881)
-![Screenshot (59)](https://github.com/g0lgi/toko_kadal/assets/119854906/1c5e79a3-0c42-4ebf-bdd3-7488604ced62)
+![Screenshot (64)](https://github.com/g0lgi/toko_kadal/assets/119854906/c82d4e63-b048-4796-90a0-c11b789db4d9)
+![Screenshot (66)](https://github.com/g0lgi/toko_kadal/assets/119854906/80e9bf6a-6c21-4895-938b-17a782f9902b)
+![Screenshot (67)](https://github.com/g0lgi/toko_kadal/assets/119854906/2ff43a02-5fa2-4396-83fb-0ad8e177a670)
+![Screenshot (68)](https://github.com/g0lgi/toko_kadal/assets/119854906/f9a33901-9d03-4698-b9b9-7e082cade2d0)
+![Screenshot (69)](https://github.com/g0lgi/toko_kadal/assets/119854906/18e96b48-ad54-459f-9b67-269e8cccbff2)
 
 # Tugas 2
-
-
-
 ## Cara Implementasi
 ### Setup Library yang dibutuhkan
 Membuat file `requirements.txt` yang berisi:

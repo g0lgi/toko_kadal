@@ -116,7 +116,6 @@ urlpatterns = [
 ![Screenshot (61)](https://github.com/g0lgi/toko_kadal/assets/119854906/556aefb1-31fd-4000-b32e-7fb92612af29)
 ![Screenshot (60)](https://github.com/g0lgi/toko_kadal/assets/119854906/d5f77cb6-1abd-438b-af13-e0ec2b595881)
 ![Screenshot (59)](https://github.com/g0lgi/toko_kadal/assets/119854906/1c5e79a3-0c42-4ebf-bdd3-7488604ced62)
-![Screenshot (58)](https://github.com/g0lgi/toko_kadal/assets/119854906/ce968178-6ce0-4063-9504-822b52368cf7)
 
 # Tugas 2
 

@@ -110,6 +110,13 @@ urlpatterns = [
 ]
 ```
 
+## Screenshots
+![Screenshot (64)](https://github.com/g0lgi/toko_kadal/assets/119854906/c82d4e63-b048-4796-90a0-c11b789db4d9)
+![Screenshot (66)](https://github.com/g0lgi/toko_kadal/assets/119854906/80e9bf6a-6c21-4895-938b-17a782f9902b)
+![Screenshot (67)](https://github.com/g0lgi/toko_kadal/assets/119854906/2ff43a02-5fa2-4396-83fb-0ad8e177a670)
+![Screenshot (68)](https://github.com/g0lgi/toko_kadal/assets/119854906/f9a33901-9d03-4698-b9b9-7e082cade2d0)
+![Screenshot (69)](https://github.com/g0lgi/toko_kadal/assets/119854906/18e96b48-ad54-459f-9b67-269e8cccbff2)
+
 # Tugas 2
 ## Cara Implementasi
 ### Setup Library yang dibutuhkan

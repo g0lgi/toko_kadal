@@ -1,4 +1,41 @@
 [Application Link](https://tokokadal.adaptable.app)
+# Tugas 4
+## Apa itu Django UserCreationForm, dan jelaskan apa kelebihan dan kekurangannya?
+UserCreationForm adalah form bawaan di Django yang digunakan untuk membuat pengguna baru tanpa privileges. Dibutuhkan nama pengguna dan kata sandi sebagai masukan dan kata sandi harus dikonfirmasi ulang. Berikut beberapa kelebihan dan kekurangannya:
+|                            Keuntungan                           |                                                                         Kekurangan                                                                         |
+|:---------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| Mudah digunakan dan tidak memerlukan banyak koding              | Tidak ada field tambahan seperti email, nama depan,  atau nama belakang secara default (Namun bisa ditambahkan dengan memperluas class 'UserCreationForm') |
+| Menyediakan validasi bawaan untuk password                      | Tidak menyediakan verifikasi email atau aktivasi akun secara default, sehingga perlu diterapkan secara terpisah                                            |
+| Secara otomatis meng-hash password sebelum disimpan ke database |                                                                                                                                                            |
+| Bisa disesuaikan untuk menambah field atau validation           |                                                                                                                                                            |
+
+##  Apa perbedaan antara autentikasi dan otorisasi dalam konteks Django, dan mengapa keduanya penting?
+Autentikasi adalah proses verifikasi identitas pengguna. Autentikasi menjawab pertanyaan “Siapa kamu?”. Di Django, sistem autentikasi memverifikasi apakah pengguna adalah seperti yang diklaim. Hal ini memastikan pengguna memberikan kredensial yang valid, seperti nama pengguna dan kata sandi, untuk mendapatkan akses ke sumber daya yang dilindungi. Sistem autentikasi Django menangani autentikasi dan otorisasi, dengan mengonfirmasi identitas pengguna terlebih dahulu, lalu memberinya akses ke fungsi tertentu berdasarkan kredensial mereka.
+
+Di sisi lain, otorisasi menentukan apa yang boleh dilakukan oleh pengguna yang telah diautentikasi. Otorisasi menjawab pertanyaan “Apa yang boleh Anda lakukan?”. Di Django, otorisasi mendefinisikan permissions dan privileges yang diberikan kepada pengguna yang sudah diautentikasi. Otorisasi mengontrol akses ke sumber daya atau tindakan tertentu dalam aplikasi. Misalnya, otorisasi dapat membatasi pengguna tertentu untuk mengakses data sensitif atau melakukan operasi penting.
+
+## Apa itu cookies dalam konteks aplikasi web, dan bagaimana Django menggunakan cookies untuk mengelola data sesi pengguna?
+Cookies adalah potongan kecil data yang disimpan situs web di komputer pengguna. Mereka digunakan untuk mengingat informasi tentang pengguna, seperti contohnya preferensi mereka, status login, dan isi keranjang belanja. Django menggunakan cookie untuk mengelola data user session. Ketika pengguna berinteraksi dengan situs web yang didukung Django, Django memberikan unique session ID ke browser mereka menggunakan cookie. Data session sebenarnya disimpan di sisi server, biasanya di dalam database. Cookie ID sesi memungkinkan Django untuk mengidentifikasi setiap browser dan mengaitkannya dengan data sesi yang sesuai. Secara default, Django menyimpan sesi di database Anda menggunakan model `django.contrib.sessions.models.Session`. Namun, Anda dapat mengkonfigurasi Django untuk menyimpan data sesi di tempat lain, seperti di filesystem atau cache anda.
+
+## Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?
+Sebagian besar cookie aman dan digunakan oleh perusahaan-perusahaan untuk menawarkan lebih banyak personalisasi di situs mereka. Namun, beberapa cookie dapat digunakan untuk melacak kita tanpa persetujuan kita. Namun, cookie itu sendiri tidak berbahaya pada komputer. Cookie hanyalah file teks yang dapat dihapus kapan saja dan tidak dapat digunakan untuk menyebarkan virus atau mengakses hard drive kita.
+
+Meskipun demikian, cookie juga memiliki risiko. Cookie yang tidak dilindungi dapat dimanipulasi, dan berakibat pengguna dan/atau organisasi terkena cybercrime yang cukup parah. Misalnya, jika cookie dibajak, penyerang dapat menyamar sebagai pengguna dan mendapatkan akses. Selain itu, cookie dapat digunakan untuk memalsukan identitas pengguna, sehingga memungkinkan penyerang mendapatkan akses ke akun online mereka.
+
+## Cara Implementasi
+###  Mengimplementasikan fungsi registrasi, login, dan logout
+Pada `views.py`, saya mengimport-import yang dibutuhkan, lalu membuat fungsi `register`, `login_user`, dan `logout_user`. Fungsi `login_user` direstriksi, dan saat login, data `last_login` juga disimpan sebagai cookie yang nantinya akan dihapus saat user logout. Ketiganya menerima request sebagai input. Lalu saya membuat html untuk masing-masing fungsi tersebut pada `main/templates`, serta mengimport masing-masing fungsi tersebut pada file `urls.py` yang ada di `main`, dan menambahkan path url mereka ke `urlpatterns`.
+
+### Membuat dua akun pengguna dengan masing-masing tiga dummy data menggunakan model yang telah dibuat pada aplikasi sebelumnya untuk setiap akun di lokal.
+Saya meregistrasikan akun, menambah 3 produk, lalu diulangi lagi.
+
+### Menghubungkan model Item dengan User
+Pada `models.py`, saya menambahkan atribut `user` pada `Product` dengan menggunakan `ForeignKey`. Lalu saya juga mengubah fungsi `create_product` pada `views.py`  agar sesuai, dan tentunya tidak lupa untuk migrate.
+
+### Menampilkan detail informasi pengguna yang sedang logged in seperti username dan menerapkan cookies seperti last login pada halaman utama aplikasi
+Pada `views.py`, saya menambahkan data `last_login` dan mengganti value dari `name` di `context` `show_main` agar berisi username. Lalu ditambahkan `last_login` pada `main.html`
+
+
 # Tugas 3
 ## Perbedaan antara form POST dan form GET dalam Django
 Metode GET digunakan untuk meminta data dan sering digunakan ketika ingin mengambil atau mencari data tanpa membuat perubahan apa pun. Misalnya, saat membuat halaman pencarian yang mencari melalui database. Data yang dikirimkan digabungkan menjadi string dan digunakan untuk membuat URL.
@@ -15,15 +52,19 @@ HTML (Bahasa Markup HiperTeks) adalah bahasa markup yang digunakan untuk membuat
 Kesimpulannya, meskipun JSON dan XML terutama digunakan untuk menyimpan dan bertukar data, HTML digunakan untuk presentasi data. Pilihan antara JSON dan XML akan bergantung pada kebutuhan proyek Anda, bahasa pemrograman, dan preferensi pribadi.
 
 ## Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?
-### 1. Ringan
+**1. Ringan**\
 JSON berbasis teks dan memiliki format data yang mudah diurai sehingga tidak memerlukan kode tambahan untuk penguraian. Ini membantu pertukaran data dan hasil layanan web agar lebih cepat.
-### 2. Struktur Datanya
+
+**2. Struktur Datanya**\
 JSON menggunakan struktur data yang terdiri dari pasangan nilai kunci, yang mudah dipahami dan digunakan. JSON juga dapat membuat serial/menyimpan data dalam array, yang membuat pembuatan dan transfer data menjadi lebih sederhana.
-### 3. Independen Bahasa
+
+**3. Independen Bahasa**\
 JSON tidak bergantung pada bahasa, artinya dapat digunakan dengan hampir semua bahasa pemrograman. Hal ini menjadikannya pilihan serbaguna sebagai sarana pertukaran data antar aplikasi yang berbeda.
-### 4. Dapat Dibaca Manusia
+
+**4. Dapat Dibaca Manusia**\
 JSON menggunakan teks yang dapat dibaca manusia untuk mengirimkan objek data, sehingga memudahkan developer untuk bekerja dengannya.
-### 5. Kecepatan
+
+**5. Kecepatan**\
 Sintaks JSON sangat mudah digunakan, kecil, dan juga ringan, yang memungkinkannya mengeksekusi dan merespons dengan lebih cepat.
 
 ## Cara Implementasi

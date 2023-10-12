@@ -1,44 +1,135 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <span class="navbar-brand mb-0 h1">Toko Kadal Patrick</span>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{% url 'main:show_main' %}">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'main:create_product' %}">Add Product</a>
-        </li>
-          <li class="nav-item">
-          <a class="nav-link" href="{% url 'main:logout' %}">Logout</a>
-        </li>
-          <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Username: {{name}} Sesi terakhir login: {{ last_login }}</a>
-        </li>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">Toko Kadal Patrick</span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'main:show_main' %}">Home</a>
+            </li>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Product</button>
+              <li class="nav-item">
+              <a class="nav-link" href="{% url 'main:logout' %}">Logout</a>
+            </li>
+              <li class="nav-item">
+              <a class="nav-link disabled" aria-disabled="true">Username: {{name}} Sesi terakhir login: {{ last_login }}</a>
+            </li>
+              </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+        <div class="col">
+            <div class="col-md-6">
+                <div class="row" id="grid"></div>
+                </div>
+            <div class="col-md-6">
+                {% load static %}
+                <img src="{% static 'kazuha.jpg' %}" alt="Example Image" class="img-fluid">
+            </div>
+            </div>
+        </div>
     </div>
-  </div>
-</nav>
 
-    {% for product in products %}
-        <tr>
-            <div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">{{product.name}}</h5>
-      <h6 class="card-subtitle mb-2 text-body-secondary">Price: {{product.price}} Amount: {{product.amount}}</h6>
-    <p class="card-text">{{product.description}}</p>
-      <div class="btn-group" role="group" aria-label="Basic example">
-      <a href="{% url 'main:increment' product.id %}" class="btn btn-primary">+</a>
-      <a href="{% url 'main:decrement' product.id %}" class="btn btn-primary">-</a>
-          <a href="{% url 'main:delete' product.id %}" class="btn btn-primary">Delete</a>
-          </div>
-  </div>
-</div>
-    {% endfor %}
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Product</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="form" onsubmit="return false;">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="name" class="col-form-label">Name:</label>
+                            <input type="text" class="form-control" id="name" name="name"></input>
+                        </div>
+                        <div class="mb-3">
+                            <label for="price" class="col-form-label">Price:</label>
+                            <input type="number" class="form-control" id="price" name="price"></input>
+                        </div>
+                        <div class="mb-3">
+                            <label for="amount" class="col-form-label">Amount:</label>
+                            <input type="number" class="form-control" id="amount" name="amount"></input>
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="col-form-label">Description:</label>
+                            <textarea class="form-control" id="description" name="description"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="button_add" data-bs-dismiss="modal">Add Product</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <script>
+        async function getProducts() {
+            console.log("Retrieving products...");
+            return fetch("{% url 'main:get_product_json' %}").then((res) => res.json())
+        }
+
+        async function refreshProducts() {
+            const productsContainer = document.getElementById("grid");
+            productsContainer.innerHTML = ""; // Clear the existing content
+
+            const products = await getProducts();
+
+            products.forEach((product) => {
+                const cardDiv = document.createElement("div");
+                cardDiv.classList.add("col");
+
+                cardDiv.innerHTML = `
+                    <div class="card" style="width: 18rem;">
+                        <h5 class="card-header text-white" style="background-color: #455945;">${product.fields.name}</h5>
+                        <div class="card-body" style="background-color: #9cc99c;">
+                            <h6 class="card-subtitle mb-2 text-white text-body-secondary">Price: ${product.fields.price} Amount: ${product.fields.amount}</h6>
+                            <p class="card-text text-white">${product.fields.description}</p>
+                            <div class="btn-group" role="group" aria-label="Basic example">
+                                <a href="/increment/${product.pk}" class="btn btn-secondary" style="background-color: #577057;">+</a>
+                                <a href="/decrement/${product.pk}" class="btn btn-secondary" style="background-color: #577057;">-</a>
+                                <a  onclick="deleteProduct(${product.pk})" class="btn btn-secondary" style="background-color: #577057;">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                productsContainer.appendChild(cardDiv);
+            });
+        }
+
+        // Call the function to load products when the page loads
+        refreshProducts();
+
+
+        function addProduct() {
+            fetch("{% url 'main:add_product_ajax' %}", {
+                method: "POST",
+                body: new FormData(document.querySelector('#form'))
+            }).then(refreshProducts)
+
+            document.getElementById("form").reset()
+            return false
+        }
+
+        document.getElementById("button_add").onclick = addProduct
+
+        async function deleteProduct(idProduct) {
+            await fetch(`/delete/${idProduct}/`, {
+                method: 'POST',
+                body: JSON.stringify({}),
+            });
+            refreshProducts();
+        }
+    </script>
 {% endblock content %}

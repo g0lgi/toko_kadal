@@ -1,4 +1,20 @@
 [Application Link](https://tokokadal.adaptable.app)
+# Tugas 6
+## Jelaskan perbedaan antara asynchronous programming dengan synchronous programming.
+Asynchronous programming memungkinkan perintah berjalan secara paralel, sedangkan synchronous programming membuat perintah menunggu satu sama lain. Asynchronous programming bersifat non-pemblokiran, sedangkan synchronous bersifat memblokir. Pemblokiran disini artinya eksekusi program secara lanjut di 'blokir' hingga perintah yang sekarang selesai.
+
+## Jelaskan maksud dari paradigma event-driven programming dan sebutkan salah satu contoh penerapannya pada tugas ini.
+Event-driven programming adalah pendekatan pemrograman yang berfokus pada pendelegasian event ke event handler yang cocok. Event handler adalah fungsi yang merespon event dan melakukan sesuatu. Beberapa contoh event misalnya klik tombol, pesan, atau pengatur waktu. Saya menerapkannya di tugas ini melalui berbagai button yang menjalankan fungsi increment, decrement, delete, dll.
+
+## Jelaskan penerapan asynchronous programming pada AJAX.
+Asynchronous programmming di AJAX memungkinkan halaman web untuk mengirim dan menerima data dari server tanpa menghalangi pelaksanaan tugas lainnya, sehingga memungkinkan halaman web untuk mengirim dan menerima data dari server tanpa memuat ulang seluruh halaman.
+
+## Bandingkanlah Fetch API dengan library jQuery dan tuliskan pendapat kamu teknologi manakah yang lebih baik untuk digunakan.
+Fetch API adalah fitur JavaScript native yang menggunakan promise dan response untuk membuat request Ajax dan mendukung berbagai tipe data dan fitur advanced, tetapi tidak kompatibel dengan browser tua. Sedangkan library jQuery adalah library JavaScript populer yang menggunakan option dan callback untuk membuat permintaan Ajax dan menawarkan kompatibilitas lintas-browser dan fitur lainnya, tetapi memerlukan perpustakaan eksternal dan mungkin memiliki masalah performance. Dari penelusuran saya, sepertinya Fetch API juga lebih modern dan memiliki sintaks yang lebih simpel dan bersih, dan maka dari itu sepertinya lebih cocok untuk digunakan ke depannya.
+
+## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)
+Pertama saya mengganti penyajian inventori agar menggunakan card, dan juga memanfaatkan AJAX GET agar bisa asinkronus. Fungsi ini saya namakan getProducts, dan saya menggunakannya untuk menampilkan seluruh inventori di fungsi refreshProducts, yang akan melakukan loop ke seluruh instance Product yang ada, lalu memuatnya di card. Lalu saya membuat sebuah tombol add product yang ketika diklik membuka sebuah modal dengan form untuk menambahkan product, lengkap dengan semua atributnya, di sebuah fungsi yang bernama addProduct. Sekali lagi, saya membuatnya asinkronus, dengan kali ini memanfaatkan AJAX POST. refreshProducts juga dijalankan untuk mengupdate halaman.
+
 # Tugas 5
 ## Manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya
 **1. Element Selector (p, h1, div)**\

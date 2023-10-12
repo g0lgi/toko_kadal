@@ -1,4 +1,63 @@
 [Application Link](https://tokokadal.adaptable.app)
+# Tugas 5
+## Manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya
+**1. Element Selector (p, h1, div)**\
+Manfaat: Memilih semua elemen dengan jenis tertentu.
+Kapan Menggunakannya: Gunakan untuk mengatur properti dasar seperti font, margin, dan padding.
+
+**2. ID Selector (e.g., #id)**\
+Manfaat: Memilih elemen dengan ID unik.
+Kapan Menggunakannya: Untuk elemen penting dan unik di halaman.
+
+**3. Class Selector (e.g., .class)**\
+Manfaat: Memilih elemen dengan kelas tertentu.
+Kapan Menggunakannya: Untuk mengelompokkan elemen dengan karakteristik atau gaya yang sama.
+
+## Jelaskan HTML5 Tag yang kamu ketahui
+
+**<p> (Paragraph)**\
+Penjelasan: Digunakan untuk menandai paragraf teks dalam dokumen HTML.
+
+**<a> (Anchor)**\
+Penjelasan: Digunakan untuk membuat tautan ke halaman web lain atau ke sumber daya lainnya, seperti dokumen, gambar, atau file.
+
+**<img> (Image)**\
+Penjelasan: Digunakan untuk menampilkan gambar dalam dokumen HTML.
+
+**<ul> (Unordered List), <ol> (Ordered List) dan <li> (List Item)**\
+Penjelasan: <ul> digunakan untuk membuat daftar tanpa urutan (daftar bullet) dengan elemen-elemen dalam <li> sebagai item daftar, sedangkan <ol> digunakan untuk membuat daftar dengan urutan (daftar berangka).
+
+**<h1> hingga <h6> (Heading)**\
+Penjelasan: Digunakan untuk menandai judul atau kepala sektion dalam dokumen dengan <h1> sebagai yang terpenting dan <h6> sebagai yang paling kecil.
+
+**<div> (Division)**\
+Penjelasan: Digunakan untuk mengelompokkan dan mengatur elemen-elemen HTML lainnya dalam blok.
+
+## Jelaskan perbedaan antara margin dan padding
+Perbedaan utama antara margin dan padding adalah bahwa padding mengatur ruang di sekitar konten dalam elemen, sementara margin mengatur ruang di sekitar elemen itu sendiri dalam hubungannya dengan elemen lain di sekitarnya. 
+
+#  Jelaskan perbedaan antara framework CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?
+|                            Keuntungan                           |                                                                         Kekurangan                                                                         |
+|:---------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| Mudah digunakan dan tidak memerlukan banyak koding              | Tidak ada field tambahan seperti email, nama depan,  atau nama belakang secara default (Namun bisa ditambahkan dengan memperluas class 'UserCreationForm') |
+| Menyediakan validasi bawaan untuk password                      | Tidak menyediakan verifikasi email atau aktivasi akun secara default, sehingga perlu diterapkan secara terpisah                                            |
+| Secara otomatis meng-hash password sebelum disimpan ke database |                                                                                                                                                            |
+| Bisa disesuaikan untuk menambah field atau validation           |                                                                                                                                                            |
+**Gunakan Tailwind CSS ketika:**
+   - Memerlukan desain yang sangat disesuaikan dan unik.
+   - Sudah familiar dengan Tailwind CSS atau lebih menyukai pendekatan yang mengutamakan utilitas.
+   - Ukuran dan kinerja file yang dioptimalkan sangat penting.
+   - Ingin memulai dari awal atau dengan cepat membuat desain prototype.
+
+**Gunakan Bootstrap ketika:**
+   - Perlu mengembangkan proyek dengan cepat.
+   - Memiliki sumber daya desain yang terbatas atau lebih memilih sistem desain yang prebuilt.
+   - Tidak familiar dengan CSS
+   - Menginginkan desain yang konsisten yang butuh lebih sedikit penyesuaian.
+
+## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+Saya menambahkan Bootstrap,  CSS, dan JS ke aplikasi dengan mengikuti tutorial 4, lalu mengcopas kode untuk navbar dari dokumentasi bootstrap. Setelah browsing-browsing dokumentasi bootstrap, saya mencoba implementasi Card, dan berhasil. Maka saya coba lagi implementasi Grid, namun gagal. Jadi akhirnya saya hanya merapihkan code html saya saja.
+
 # Tugas 4
 ## Apa itu Django UserCreationForm, dan jelaskan apa kelebihan dan kekurangannya?
 UserCreationForm adalah form bawaan di Django yang digunakan untuk membuat pengguna baru tanpa privileges. Dibutuhkan nama pengguna dan kata sandi sebagai masukan dan kata sandi harus dikonfirmasi ulang. Berikut beberapa kelebihan dan kekurangannya:

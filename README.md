@@ -31,22 +31,22 @@ Kapan Menggunakannya: Untuk mengelompokkan elemen dengan karakteristik atau gaya
 
 ## Jelaskan HTML5 Tag yang kamu ketahui
 
-**<p> (Paragraph)**\
+** `<p>` (Paragraph)**\
 Penjelasan: Digunakan untuk menandai paragraf teks dalam dokumen HTML.
 
-**<a> (Anchor)**\
+** `<a>` (Anchor)**\
 Penjelasan: Digunakan untuk membuat tautan ke halaman web lain atau ke sumber daya lainnya, seperti dokumen, gambar, atau file.
 
-**<img> (Image)**\
+** `<img>` (Image)**\
 Penjelasan: Digunakan untuk menampilkan gambar dalam dokumen HTML.
 
-**<ul> (Unordered List), <ol> (Ordered List) dan <li> (List Item)**\
+** `<ul>` (Unordered List), `<ol>` (Ordered List) dan `<li>` (List Item)**\
 Penjelasan: <ul> digunakan untuk membuat daftar tanpa urutan (daftar bullet) dengan elemen-elemen dalam <li> sebagai item daftar, sedangkan <ol> digunakan untuk membuat daftar dengan urutan (daftar berangka).
 
-**<h1> hingga <h6> (Heading)**\
+** `<h1>` hingga `<h6>` (Heading)**\
 Penjelasan: Digunakan untuk menandai judul atau kepala sektion dalam dokumen dengan <h1> sebagai yang terpenting dan <h6> sebagai yang paling kecil.
 
-**<div> (Division)**\
+** `<div>` (Division)**\
 Penjelasan: Digunakan untuk mengelompokkan dan mengatur elemen-elemen HTML lainnya dalam blok.
 
 ## Jelaskan perbedaan antara margin dan padding
